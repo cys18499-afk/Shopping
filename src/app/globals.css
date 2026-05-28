@@ -1,0 +1,68 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-gray-100: #f5f5f7;
+  --color-gray-200: #e5e5e5;
+  --color-gray-400: #787878;
+  --color-gray-500: #86868b;
+
+  --color-bg-gray-500: #fafafa;
+  --color-bg-gray: #f5f5f5;
+  --color-bg-discount: #df1b1b;
+  --color-bg-info: #0071e3;
+
+  --color-ui-background: var(--color-white);
+  --color-ui-text: var(--color-black);
+  --color-ui-muted: var(--color-gray-500);
+  --color-ui-base: var(--color-gray-200);
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-float: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-white);
+    color: var(--color-ui-text);
+    font-family: "Pretendard", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.modal-open {
+    overflow: hidden !important;
+  }
+
+  /* OrderForm 페이지에서 스크롤바가 생기는 내부 컨테이너도 함께 잠금 */
+  /* (OrderForm에서 스크롤이 발생하는 컨테이너의 클래스나 태그를 적어주세요) */
+  body.modal-open main,
+  body.modal-open .overflow-y-auto,
+  body.modal-open #scroll-container {
+    overflow: hidden !important;
+  }
+}
+
+@utility inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+@utility no-drag {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@utility text-discount {
+  color: var(--color-brand-discount);
+  font-weight: 700;
+}
+
+@utility text-info {
+  color: var(--color-brand-info);
+}
