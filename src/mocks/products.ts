@@ -139,13 +139,13 @@ export const MOCK_KARINA_MAIN_IMAGE: FeaturedSectionMainImage = [
     id: "conllection1",
     src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/0c6bb903-7064-4185-b6a3-397d7f07e65e.png",
     alt: "카리나 섹션 1",
-    href: "http://localhost:3000/product-detail/summer-stripe-meow-beanie",
+    href: "/product-detail/summer-stripe-meow-beanie",
   },
   {
     id: "conllection2",
     src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/1ab2f039-c70d-437a-bcd4-a39c0ef3c955.png",
     alt: "카리나 섹션 2",
-    href: "http://localhost:3000/product-detail/signature-allover-patch-structured-ballcap-new-york-yankees",
+    href: "/product-detail/signature-allover-patch-structured-ballcap-new-york-yankees",
   },
 ];
 
@@ -223,6 +223,6 @@ export const MOCK_TWS_MAIN_IMAGE: FeaturedSectionMainImage = [
     id: "conllection1",
     src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/c6a39edd-608b-4794-b427-3a308527e387.png",
     alt: "투어스 섹션 1",
-    href: "http://localhost:3000/product-detail/vintage-washed-letter-graphic-short-sleeve-t-shirt-boston-red-sox",
+    href: "/product-detail/vintage-washed-letter-graphic-short-sleeve-t-shirt-boston-red-sox",
   },
 ];

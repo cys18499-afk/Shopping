@@ -12,7 +12,7 @@ export default function ProductOptionSelector({
   size: string;
   onIncrease: () => void;
   onDecrease: () => void;
-  onRemoveSize: () => void;
+  onRemoveSize?: () => void;
 }) {
   return (
     <div className="flex items-center justify-between px-2 py-1 bg-white border-gray-300 border ">

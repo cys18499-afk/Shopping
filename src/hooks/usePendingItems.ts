@@ -1,9 +1,25 @@
 import { useState } from "react";
 import { createUniqueKey } from "../lib/utils";
 import { PendingItem } from "../types/cart";
+import { Product } from "../types/product";
 
-export function usePendingItems() {
-  const [pendingItems, setPendingItems] = useState<PendingItem[]>([]);
+export function usePendingItems(product?: Product) {
+  const [pendingItems, setPendingItems] = useState<PendingItem[]>(() => {
+    const isSizeFree = product?.sizes?.includes("F");
+
+    if (isSizeFree && product) {
+      const uniqueKey = createUniqueKey(product.id, "F");
+      return [
+        {
+          id: product.id,
+          uniqueKey: uniqueKey,
+          size: "F",
+          quantity: 1,
+        },
+      ];
+    }
+    return [];
+  });
 
   const handleSelectSize = (product_id: string, size: string) => {
     const uniqueKey = createUniqueKey(product_id, size);

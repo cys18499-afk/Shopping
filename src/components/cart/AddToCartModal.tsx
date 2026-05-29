@@ -3,74 +3,7 @@
 import Link from "next/link";
 import { Product } from "@/src/types/product";
 import ProductCard from "../product/ProductCard";
-
-const mockProducts: Product[] = [
-  {
-    id: "1",
-    productName: "에이프릴 볼캡",
-    unitPrice: 36000,
-    description: "심플한 디자인의 에이프릴 볼캡입니다.",
-    categoryId: "cap",
-    thumbnail: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    slug: "april-ball-cap-brown",
-    sizes: ["FREE"],
-    stock: 50,
-    isNew: true,
-  },
-  {
-    id: "2",
-    productName: "에이프릴 볼캡",
-    unitPrice: 36000,
-    description: "심플한 디자인의 에이프릴 볼캡입니다.",
-    categoryId: "cap",
-    thumbnail: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    slug: "april-ball-cap-beige",
-    sizes: ["FREE"],
-    stock: 50,
-  },
-  {
-    id: "3",
-    productName: "에이프릴 볼캡",
-    unitPrice: 36000,
-    description: "심플한 디자인의 에이프릴 볼캡입니다.",
-    categoryId: "cap",
-    thumbnail: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    slug: "april-ball-cap-charcoal",
-    sizes: ["FREE"],
-    stock: 50,
-  },
-  {
-    id: "4",
-    productName: "에이프릴 볼캡 ",
-    unitPrice: 36000,
-    description: "심플한 디자인의 에이프릴 볼캡입니다.",
-    categoryId: "cap",
-    thumbnail: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600",
-    ],
-    slug: "april-ball-cap-navy",
-    sizes: ["FREE"],
-    stock: 50,
-  },
-];
+import { MOCK_KARINA_PRODUCTS1 } from "@/src/mocks/products";
 
 export default function AddToCartModal({ onClose }: { onClose: () => void }) {
   return (
@@ -83,7 +16,7 @@ export default function AddToCartModal({ onClose }: { onClose: () => void }) {
       </p>
 
       <div className="grid grid-cols-4 gap-2 w-full">
-        {mockProducts.map((product) => (
+        {MOCK_KARINA_PRODUCTS1.map((product) => (
           <ProductCard product={product} key={product.id} />
         ))}
       </div>

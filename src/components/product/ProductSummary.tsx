@@ -26,13 +26,15 @@ export default function ProductSummary({ product }: { product: Product }) {
     handleIncrease,
     handleDecrease,
     handleRemove,
-  } = usePendingItems();
+  } = usePendingItems(product);
 
   const { user } = useAuthStore();
   const wishedIds = useWishStore((s) => s.wishedIds);
   const isWished = wishedIds.has(product.id);
   const toggle = useWishStore((s) => s.toggle);
   const addToCart = useCartStore((c) => c.addItem);
+
+  const sizeFree = product.sizes?.includes("F");
 
   const finalPrice = Math.floor(
     product.unitPrice * (1 - (product.discountRate ?? 0) / 100),
@@ -134,14 +136,15 @@ export default function ProductSummary({ product }: { product: Product }) {
           ))}
         </div>
       </div> */}
-
-      <OptionSelect
-        options={product.sizes ?? []}
-        value="사이즈를 선택 하세요"
-        onChange={(size) => handleSelectSize(product.id, size)}
-        isExpanded={isExpanded}
-        setIsExpanded={setIsExpanded}
-      />
+      {!sizeFree && (
+        <OptionSelect
+          options={product.sizes ?? []}
+          value="사이즈를 선택 하세요"
+          onChange={(size) => handleSelectSize(product.id, size)}
+          isExpanded={isExpanded}
+          setIsExpanded={setIsExpanded}
+        />
+      )}
 
       <div className="mt-4 flex flex-col gap-1">
         {pendingItems.map((item) => (
@@ -151,7 +154,9 @@ export default function ProductSummary({ product }: { product: Product }) {
             quantity={item.quantity}
             onIncrease={() => handleIncrease(item.uniqueKey)}
             onDecrease={() => handleDecrease(item.uniqueKey)}
-            onRemoveSize={() => handleRemove(item.uniqueKey)}
+            onRemoveSize={
+              !sizeFree ? () => handleRemove(item.uniqueKey) : undefined
+            }
           />
         ))}
       </div>
