@@ -29,7 +29,6 @@ export default function FeaturedSection({
 }) {
   const [activeTab, setActiveTab] = useState<TabType>("conllection1");
   const activeIndex = mainImage.findIndex((b) => b.id === activeTab);
-
   const activeProducts = productsMap[activeTab] || [];
 
   return (

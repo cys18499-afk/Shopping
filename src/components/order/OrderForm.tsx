@@ -235,6 +235,7 @@ export default function OrderForm({
         id="order-form"
         // onSubmit={handleSubmit(handlePayment)}
         onSubmit={handleSubmit(handlePayment, (errors) => {
+          console.log("입력 에러 원인:", errors);
           alert("주문자 정보 또는 배송지 정보를 다시 확인해 주세요.");
         })}
         className="flex flex-col gap-8 w-full"
@@ -245,7 +246,11 @@ export default function OrderForm({
             <div className="w-full border-t-[1.5px] border-black my-2" />
 
             <div className="w-[60%] py-4 px-6 flex flex-col gap-2">
-              <FormRowVertical label="주문자명" required>
+              <FormRowVertical
+                label="주문자명"
+                required
+                error={errors.customerName?.message}
+              >
                 <Input
                   placeholder="주문하시는 분의 이름을 입력해 주세요"
                   {...register("customerName", {
@@ -256,7 +261,11 @@ export default function OrderForm({
                 />
               </FormRowVertical>
 
-              <FormRowVertical label="연락처" required>
+              <FormRowVertical
+                label="연락처"
+                required
+                error={errors.customerNumber?.message}
+              >
                 <Input
                   type="tel"
                   placeholder="연락처를 입력해 주세요"

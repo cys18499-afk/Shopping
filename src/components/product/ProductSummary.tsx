@@ -174,9 +174,9 @@ export default function ProductSummary({ product }: { product: Product }) {
           장바구니
         </button>
 
-        <button className="flex-1 bg-black text-white cursor-pointer hover:bg-[#2b2b2b] transition-colors">
+        {/* <button className="flex-1 bg-black text-white cursor-pointer hover:bg-[#2b2b2b] transition-colors">
           바로 구매
-        </button>
+        </button> */}
       </div>
 
       <Modal isOpen={isOpen} onClose={closeModal} backdropBlur>
