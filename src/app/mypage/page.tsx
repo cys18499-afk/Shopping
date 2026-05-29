@@ -20,10 +20,9 @@ export default async function Mypage() {
 
   return (
     <div>
-      <UserSummary availableCredit={user.availableCredit} />
+      <UserSummary availableCredit={user?.availableCredit} />
       <OrderStatusSummary recentOrderStatuses={recentOrderStatuses} />
       <OrderStatus recentOrders={recentOrders} />
-      <div></div>
     </div>
   );
 }

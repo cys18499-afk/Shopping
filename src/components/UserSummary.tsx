@@ -4,7 +4,7 @@ export default function UserSummary({
   availableCredit = 0,
   // coupons = 0,
 }: {
-  availableCredit: number;
+  availableCredit?: number;
   // coupons: number;
 }) {
   return (
