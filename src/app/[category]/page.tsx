@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { getProducts } from "@/src/lib/data/products";
 import CategoryClient from "./CategoryClient";
-import { Spinner } from "@/src/components/common/ui/Spinner"; // 스피너 경로 맞춰주세요
 
 async function CategoryResults({ category }: { category: string }) {
   const decodedCategory = decodeURIComponent(category);

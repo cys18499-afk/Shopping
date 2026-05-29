@@ -118,6 +118,6 @@ export async function getProductSearch(query: string): Promise<Product[]> {
   return (data as any[]).map((product) => ({
     ...product,
     thumbnail: product.thumbnail.map((img: { url: string }) => img.url),
-    images: [], // 검색 목록에서는 상세 이미지가 보통 필요 없으므로 빈 배열 처리
+    images: [],
   })) as Product[];
 }

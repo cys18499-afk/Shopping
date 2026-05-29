@@ -128,20 +128,24 @@ export const MOCK_KARINA_PRODUCTS2: Product[] = [
   },
 ];
 
-export const MOCK_KARINA_MAIN_IMAGE: {
+export type FeaturedSectionMainImage = {
   id: string;
   src: string;
   alt: string;
-}[] = [
+  href: string;
+}[];
+export const MOCK_KARINA_MAIN_IMAGE: FeaturedSectionMainImage = [
   {
     id: "conllection1",
-    src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/basic-vintage-logo-hobobag01.png",
+    src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/0c6bb903-7064-4185-b6a3-397d7f07e65e.png",
     alt: "카리나 섹션 1",
+    href: "http://localhost:3000/product-detail/summer-stripe-meow-beanie",
   },
   {
     id: "conllection2",
     src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/1ab2f039-c70d-437a-bcd4-a39c0ef3c955.png",
     alt: "카리나 섹션 2",
+    href: "http://localhost:3000/product-detail/signature-allover-patch-structured-ballcap-new-york-yankees",
   },
 ];
 
@@ -207,21 +211,18 @@ export const MOCK_TWS_PRODUCTS1: Product[] = [
       "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/C7CBE19486ED4592B998F8C803CC4AAF.png",
       "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/ED136BDE9E4E4A08AA8FC02612FB9CD8.png",
     ],
-    sizes: ["S", "M", "L", "XL"], // 기존 신발 사이즈에서 변경 완료
+    sizes: ["S", "M", "L", "XL"],
     slug: "letter-graphic-overfit-ringer-t-shirt-boston-red-sox",
     stock: 99999999,
     discountRate: 0,
     isNew: true,
   },
 ];
-export const MOCK_TWS_MAIN_IMAGE: {
-  id: string;
-  src: string;
-  alt: string;
-}[] = [
+export const MOCK_TWS_MAIN_IMAGE: FeaturedSectionMainImage = [
   {
     id: "conllection1",
     src: "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/c6a39edd-608b-4794-b427-3a308527e387.png",
     alt: "투어스 섹션 1",
+    href: "http://localhost:3000/product-detail/vintage-washed-letter-graphic-short-sleeve-t-shirt-boston-red-sox",
   },
 ];

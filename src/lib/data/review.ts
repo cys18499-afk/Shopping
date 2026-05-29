@@ -89,10 +89,8 @@ export async function getReviewsByProductPaged(
     images: review.images?.map((img: { url: string }) => img.url) || [],
   }));
 
-  // photoOnly 필터 적용
   if (filters?.photoOnly) {
     formattedData = formattedData.filter((r) => r.images.length > 0);
-    // 필터링 후 정확히 itemsPerPage개만 반환
     formattedData = formattedData.slice(0, itemsPerPage);
   }
 

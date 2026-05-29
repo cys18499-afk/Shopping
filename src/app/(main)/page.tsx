@@ -23,6 +23,7 @@ export default function MainPage() {
         }}
         mainImage={MOCK_KARINA_MAIN_IMAGE}
         categories={FEATURED_SECTION_CATREGORIES}
+        loof
       />
       <FeaturedSection
         title="FOCUS EDITION"

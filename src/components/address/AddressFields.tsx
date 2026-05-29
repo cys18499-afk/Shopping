@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { AddressInput } from "@/src/types/address";
 import FormRowVertical from "../common/ui/FormRowVertical";
@@ -14,7 +14,14 @@ export default function AddressFields() {
     setFocus,
     formState: { errors },
   } = useFormContext<AddressInput>();
+
+  const [isChecked, setIsChecked] = useState(false);
+
   const { user } = useAuthStore();
+  const { watch } = useFormContext();
+
+  const customerName = watch("customerName");
+  const customerNumber = watch("customerNumber");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -42,6 +49,23 @@ export default function AddressFields() {
     }).open();
   };
 
+  const handleToggleSameAsOrderer = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const checked = e.target.checked;
+    setIsChecked(checked);
+
+    if (checked) {
+      setValue("receiverName", customerName || "", { shouldValidate: true });
+      setValue("receiverPhoneNumber", customerNumber || "", {
+        shouldValidate: true,
+      });
+    } else {
+      setValue("receiverName", "", { shouldValidate: true });
+      setValue("receiverPhoneNumber", "", { shouldValidate: true });
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       {user && (
@@ -49,6 +73,19 @@ export default function AddressFields() {
           <Input placeholder="예: 우리집, 회사" {...register("addressName")} />
         </FormRowVertical>
       )}
+
+      <div className="flex items-center gap-2">
+        <label htmlFor="id" className="text-[14px] cursor-pointer">
+          주문자와 동일
+        </label>
+        <input
+          type="checkbox"
+          id="id"
+          className="accent-black cursor-pointer"
+          checked={isChecked}
+          onChange={handleToggleSameAsOrderer}
+        />
+      </div>
 
       <FormRowVertical
         label="받는 분"

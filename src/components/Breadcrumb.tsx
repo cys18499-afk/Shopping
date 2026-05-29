@@ -26,7 +26,6 @@ export default function Breadcrumb() {
     // mileage: "마일리지",
     points: "포인트",
     coupons: "쿠폰함",
-    membership: "회원 등급/혜택 안내",
 
     address: "배송지 관리",
     "user-info-management": "내정보 관리",

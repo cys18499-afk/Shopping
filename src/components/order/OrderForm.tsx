@@ -235,7 +235,6 @@ export default function OrderForm({
         id="order-form"
         // onSubmit={handleSubmit(handlePayment)}
         onSubmit={handleSubmit(handlePayment, (errors) => {
-          console.log("입력 에러 원인:", errors); // 콘솔창에서 어디가 틀렸는지 확인 가능
           alert("주문자 정보 또는 배송지 정보를 다시 확인해 주세요.");
         })}
         className="flex flex-col gap-8 w-full"
