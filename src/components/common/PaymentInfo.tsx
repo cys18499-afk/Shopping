@@ -6,6 +6,7 @@ import { CartItem } from "@/src/types/cart";
 import { useCartStore } from "@/src/store/CartStore";
 import { useOrderStore } from "@/src/store/OrderStore";
 import { calculateDisplayPrice, formatCurrency } from "@/src/lib/utils";
+import { useAuthStore } from "@/src/store/AuthStore";
 
 type Props =
   | { variant: "cart"; selectedItems: CartItem[]; handleCheckout: () => void }
@@ -20,6 +21,7 @@ type Props =
     };
 
 export default function PaymentInfo(props: Props) {
+  const { user } = useAuthStore();
   const isValid = useOrderStore((state) => state.isValid);
   const checkoutItems = useCartStore((state) => state.checkoutItems);
   const isWidgetReady = useOrderStore((state) => state.isWidgetReady);
@@ -111,25 +113,28 @@ export default function PaymentInfo(props: Props) {
               {formatCurrency(finalPrice)}
             </span>
           </div>
-
-          <div className="flex justify-between items-center pl-2">
-            <span className="text-[12px] text-gray-500">예상 적립금</span>
-            <span className="text-[12px] text-blue-500">
-              {formatCurrency(Math.round(summary.totalPrice * 0.03))}
-            </span>
-          </div>
+          {user && (
+            <div className="flex justify-between items-center pl-2">
+              <span className="text-[12px] text-gray-500">예상 적립금</span>
+              <span className="text-[12px] text-blue-500">
+                {formatCurrency(Math.round(summary.totalPrice * 0.03))}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
       {isConfirmation ? (
         <div className="p-5 pt-0">
           <div className="flex flex-col gap-3">
-            <Link
-              href="/mypage/order/list"
-              className="w-full py-4 bg-black text-white text-center font-bold transition-colors"
-            >
-              주문 내역 확인
-            </Link>
+            {user && (
+              <Link
+                href="/mypage/order/list"
+                className="w-full py-4 bg-black text-white text-center font-bold transition-colors"
+              >
+                주문 내역 확인
+              </Link>
+            )}
             <Link
               href="/"
               className="w-full py-4 bg-white text-black text-center font-bold border border-gray-300 hover:bg-gray-50 transition-colors"

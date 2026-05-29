@@ -36,7 +36,7 @@ export const MOCK_KARINA_PRODUCTS1: Product[] = [
       "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/2DC016841C58482CBAF7B3C17DC11F4B.png",
       "https://rlccqilvxjwokzhxzrpz.supabase.co/storage/v1/object/public/product-images/BE1BFDBBCFD24875AECD4D8C4ED31713.png",
     ],
-    sizes: ["F"],
+    sizes: ["S", "M", "L", "XL"],
     slug: "street-color-letter-tee",
     stock: 999999999,
     discountRate: 0,
