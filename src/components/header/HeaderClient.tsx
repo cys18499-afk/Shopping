@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import HeaderIcons from "./HeaderIcons";
 import { NAV_MENU, NavItem } from "./NavMenu";
+import clsx from "clsx";
 
 export default function HeaderClient({ user }: { user: SupabaseUser | null }) {
   const [showtopBanner, setShowTopBanner] = useState(true);
@@ -23,7 +24,16 @@ export default function HeaderClient({ user }: { user: SupabaseUser | null }) {
   };
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -61,9 +71,9 @@ export default function HeaderClient({ user }: { user: SupabaseUser | null }) {
         )}
 
         <div
-          className={cls(
-            "inner flex h-15 items-center justify-between",
-            scrolled && "hidden",
+          className={clsx(
+            "inner flex h-15 items-center justify-between transition-opacity duration-300",
+            scrolled ? "opacity-0 pointer-events-none" : "opacity-100",
           )}
         >
           <Link
@@ -87,7 +97,7 @@ export default function HeaderClient({ user }: { user: SupabaseUser | null }) {
           </nav>
 
           <div
-            className={cls(
+            className={clsx(
               "transition-all duration-300",
               scrolled ? "flex" : "hidden",
             )}
