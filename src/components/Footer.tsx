@@ -46,17 +46,16 @@ export default function Footer() {
               </p>
               <p>
                 <span className="text-gray-500">통신판매업신고</span>{" "}
-                제2011-서울강남-01006호
+                제2000-서울강남-00000호
               </p>
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6">
               <p>
                 <span className="text-gray-500">주소</span> 서울특별시 강남구
-                언주로 541 (역삼동)
               </p>
               <p>
-                <span className="text-gray-500">고객지원센터</span> 080-807-0012
-                (수신자 요금부담)
+                <span className="text-gray-500">고객지원센터</span>{" "}
+                000-1234-5678 (수신자 요금부담)
               </p>
             </div>
           </div>
