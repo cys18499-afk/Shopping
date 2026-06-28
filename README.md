@@ -68,7 +68,7 @@
 - State Management : Zustand
 - Data Fetching : React Query (TanStack Query)
 - Database / Auth : Supabase
-- External API : 토스페이먼츠 (Toss Payments)
+- External API : 토스페이먼츠 
 
 ---
 
@@ -124,7 +124,7 @@ src
 
 #### 문제
 
-- Intersection Observer의 콜백이 연속으로 호출되면서, 이전 요청이 끝나기 전에 동일한 페이지 데이터에 대한 중복 API 요청 및 레이스 컨디션(Race Condition) 발생
+- Intersection Observer의 콜백이 연속으로 호출되면서, 이전 요청이 끝나기 전에 동일한 페이지 데이터에 대한 중복 API 요청 발생
 
 #### 해결
 
