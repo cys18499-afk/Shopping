@@ -1,0 +1,22 @@
+# MLB Korea Shopping Mall robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: *.json$
+Disallow: /order/checkout/
+Disallow: /mypage/
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
